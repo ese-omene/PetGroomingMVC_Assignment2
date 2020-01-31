@@ -4,4 +4,19 @@
 }
 
 <h2>Show</h2>
+<a href="/Species/List">Back to List</a>
+
+<div id="showSpecies">
+    <div>Name : @Model.Name</div>
+    
+</div>
+
+
+<div>
+
+    <a href='@Url.Action("Update", "Species", new { id = Model.SpeciesID})' class="btn btn-warning">Update</a>
+    <a href='@Url.Action("Delete", "Species", new { id = Model.SpeciesID})' class="btn btn-warning">Delete</a>
+
+</div>
+
 

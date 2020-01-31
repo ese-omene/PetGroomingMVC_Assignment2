@@ -50,7 +50,7 @@ namespace PetGrooming.Models
         public virtual Owner Owner { get; set; }
         
         //Representing the Many in (Many Bookings to Many Services)
-        public ICollection<GroomService> GroomServices { get; set; }
+        public ICollection<GroomService> GroomServices { get; set; }  //what describes a booking?
            
     }
 }
