@@ -5,7 +5,10 @@
     ViewBag.Title = "Update";
 }
 
-<h2>Update</h2>
+<h2>Update @Model.pet.PetName</h2>
+
+
+
 <form action="/Pet/Update/@Model.pet.PetID" method="POST">
     <span>Pet Name</span><input type="text" value="@Model.pet.PetName" id="PetName" name="PetName"/><br />
     <span>Pet Color</span><input type="text" value="@Model.pet.Color" id="PetColor" name="PetColor"/><br />
@@ -30,4 +33,7 @@
         <textarea id="PetNotes" name="PetNotes">@Model.pet.Notes</textarea>
     </div>
     <input type="submit" value="Update Pet" />
+    <div>
+        <a href="/Pet/List">Back to List</a>
+    </div>
 </form>

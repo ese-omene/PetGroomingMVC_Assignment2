@@ -5,40 +5,47 @@
 }
 
 
-<h2>Add </h2>
+<h2>Add a New Pet </h2>
 
 <form method="post" action="/Pet/Add">
+    <fieldset>
+        <legend>Please Enter Your Pet Information</legend>
 
 
+        <div>
+            <label for="PetName">Name:</label>
+            <input type="text" name="PetName" id="PetName" />
+        </div>
 
-    <label for="PetName">Name:</label>
-    <input type="text" name="PetName" id="PetName" />
+        <div>
+            <label for="PetWeight">Weight:</label>
+            <input type="text" name="PetWeight" id="PetWeight" />
+        </div>
 
+        <div>
+            <label for="PetColor">Color:</label>
+            <input type="text" name="PetColor" id="PetColor" />
+        </div>
+        <div>
+            <label for="SpeciesID">Species:</label>
+            <select type="text" name="SpeciesID" id="SpeciesID">
+                @{
+                    foreach (var species in @Model)
+                    {
+                        <option value="@species.SpeciesID">@species.Name</option>
 
-    <label for="PetWeight">Weight:</label>
-    <input type="text" name="PetWeight" id="PetWeight" />
-
-
-    <label for="PetColor">Color:</label>
-    <input type="text" name="PetColor" id="PetColor" />
-
-    <label for="SpeciesID">Species:</label>
-    <select type="text" name="SpeciesID" id="SpeciesID">
-        @{
-            foreach (var species in @Model)
-            {
-                <option value="@species.SpeciesID">@species.Name</option>
-
-            }
-        }
-    </select>
-
-
-    <label for="PetNotes">Notes:</label>
-    <textarea name="PetNotes" id="PetNotes">
+                    }
+                }
+            </select>
+        </div>
+        <div>
+            <label for="PetNotes">Notes:</label>
+            <textarea name="PetNotes" id="PetNotes">
 
         </textarea>
+        </div>
 
+    </fieldset>
     <input type="submit" value="Add Pet" />
 </form>
 

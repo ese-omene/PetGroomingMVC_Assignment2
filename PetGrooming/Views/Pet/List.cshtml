@@ -4,27 +4,41 @@
     ViewBag.Title = "List";
 }
 
-<h2>List of Pets</h2>
+<h2>Current List of Customer Pets</h2>
 <div id="searchBar">
     <input type="text" id="Search" />
     <input type="submit" value="Search" id="PetSearch" />
 </div>
 <div>
-    @{
-        foreach (var Pet in Model)
-        {
-            <div>
-                <span><a href="/Pet/Show/@Pet.PetID">@Pet.PetName</a></span>
-                <span>@Pet.Species.Name</span>
-                <span>@Pet.Weight</span>
-                <span>
-                    <a href='@Url.Action("Update", "Pet", new { id = Pet.PetID})' class="btn btn-xs">Update</a>
-                    <a href='@Url.Action("Delete", "Pet", new { id = Pet.PetID})' class="btn btn-xs">Delete</a>
-                </span>
-               
-            </div>
-        }
-    }
+    <table>
+        <thead>
+            <th>Pet Name</th>
+            <th>Species</th>
+            <th>Weight</th>
+        </thead>
+            <tbody>
+
+                @{
+                    foreach (var Pet in Model)
+                    {
+                        <tr>
+                            <td><a href="/Pet/Show/@Pet.PetID">@Pet.PetName</a></td>
+                            <td>@Pet.Species.Name</td>
+                            <td>@Pet.Weight KG</td>
+                            <td>
+                                <a href='@Url.Action("Update", "Pet", new { id = Pet.PetID})' class="btn btn-xs">Update</a>
+                            </td>
+
+                        </tr>
+                    }
+                }
+
+
+            </tbody>
+    </table>
+
+
+
 </div>
 
 <a href='@Url.Action("Add","Pet")' class="btn btn-success">Add New Pet</a>

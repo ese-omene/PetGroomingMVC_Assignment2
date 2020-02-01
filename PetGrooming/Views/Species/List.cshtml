@@ -5,26 +5,38 @@
     ViewBag.Title = "List";
 }
 
-<h2>List of Species</h2>
+<h2>Curret List of Species We Groom</h2>
 <div id="searchBar">
     <input type="text" id="Search" />
     <input type="submit" value="Search" id="SpeciesSearch" />
 </div>
 <div>
-    @{
-        foreach (var species in @Model)
-        {
+    <table>
+        <thead>
+            <th>Species</th>
+        </thead>
+            <tbody>
+                @{
+                    foreach (var species in @Model)
+                    {
 
-            <div id="listSpecies">
-                <a href="/Species/Show/@species.SpeciesID">@species.Name</a>
-                <span>
-                    <a href='@Url.Action("Update", "Species", new { id = species.SpeciesID})' class="btn btn-xs">Update</a>
-                    <a href='@Url.Action("Delete", "Species", new { id = species.SpeciesID})' class="btn btn-xs">Delete</a>
+                        <tr id="listSpecies">
+                            <td>  <a href="/Species/Show/@species.SpeciesID">@species.Name</a></td>
+                            <td>
+                                <a href='@Url.Action("Update", "Species", new { id = species.SpeciesID})' class="btn btn-xs">Update</a>
 
-                </span>
+                            </td>
 
-            </div>
-        }
-    }
+                        </tr>
+                    }
+                }
+
+
+
+            </tbody>
+    </table>
+
+
+    
 </div>
 <a href='@Url.Action("Add", "Species")' class="btn btn-success">Add New Species</a>

@@ -4,12 +4,12 @@
     ViewBag.Title = "Show";
 }
 
-<h2>Show Pet</h2>
+<h2>Details for  @Model.PetName</h2>
 
-<a href="">Back to List</a>
+
 <div id="showPet">
     <div>Name : @Model.PetName</div>
-    <div>Weight : @Model.Weight</div>
+    <div>Weight : @Model.Weight KG</div>
     <div>Species : @Model.Species.Name</div>
 </div>
 
@@ -19,4 +19,7 @@
     <a href='@Url.Action("Update", "Pet", new { id = Model.PetID})' class="btn btn-warning">Update</a>
     <a href='@Url.Action("Delete", "Pet", new { id = Model.PetID})' class="btn btn-warning">Delete</a>
 
+</div>
+<div>
+    <a href="/Pet/List">Back to List</a>
 </div>
